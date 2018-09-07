@@ -7,10 +7,10 @@
 // })
 
 const tabArr = [
-  {id: 0, categories: 'init'},
-  {id: 1, categories: 'draw'},
-  {id: 2, categories: 'addMarker'},
-  {id: 3, categories: 'drawLine'},
-  {id: 4, categories: 'other'}
+  {id: 0, categories: 'init', link: '/link'},
+  {id: 1, categories: 'draw', link: '/draw'},
+  {id: 2, categories: 'addMarker', link: '/addMarker'},
+  {id: 3, categories: 'drawLine', link: '/drawLine'},
+  {id: 4, categories: 'other', link: '/other'}
 ]
-exports.abJSON = tabArr
+exports.tabJSON = tabArr
