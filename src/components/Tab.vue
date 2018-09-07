@@ -2,7 +2,7 @@
   <div class="tab">
     <ul>
       <li v-for="item in list" :key="item.id">
-        {{item.categories}}
+        <button type="button" class="btn" :class="btnStyle[item.id]">{{item.categories}}</button>
       </li>
     </ul>
   </div>
@@ -16,14 +16,15 @@ export default {
     return {
       list: [
 
-      ]
+      ],
+      btnStyle: ['btn-dark', 'btn-primary', 'btn-success', 'btn-danger', 'btn-warning']
     }
   },
   created () {
     axios.get('http://localhost:3000/tab')
       .then(res => {
         console.log(res)
-        this.list = res.data.abJSON.list
+        this.list = res.data.abJSON
       })
   },
   methods: {
@@ -42,4 +43,7 @@ ul
     height: 100%
     list-style: none
     flex: 1
+    text-align: center
+    button
+      width: 50%
 </style>
