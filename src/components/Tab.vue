@@ -12,7 +12,7 @@
 
 <script>
 import axios from 'axios'
-const btnStyle = ['btn-dark', 'btn-primary', 'btn-success', 'btn-danger', 'btn-warning']
+const btnStyle = ['btn-outline-dark', 'btn-outline-primary', 'btn-outline-success', 'btn-outline-danger', 'btn-outline-warning']
 export default {
   name: 'Tab',
   data () {
