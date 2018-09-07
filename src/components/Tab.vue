@@ -24,7 +24,7 @@ export default {
     }
   },
   created () {
-    axios.get('api/tab')
+    axios.get('/api/tab')
       .then(res => {
         console.log(res)
         this.list = res.data.tabJSON

@@ -7,7 +7,6 @@ const app = express()
 
 app.use(cors()) //跨域
 app.use(router)
-
 //接口数据
 const tabJSON = require('./src/api/tab')
 
@@ -15,12 +14,6 @@ const tabJSON = require('./src/api/tab')
 router.get('/tab', (req, res) => {
   res.send(tabJSON)
   res.end() 
-})
-router.get('/', (req, res) => {
-  fs.readFile('./dist/index.html', (err, data) => {
-    res.send(data)
-    res.end()
-  }) 
 })
 app.listen(port, () => {
   console.log(`server is running at port ${port}`)

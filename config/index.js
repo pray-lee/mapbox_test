@@ -9,13 +9,12 @@ module.exports = {
 
     // Paths
     assetsSubDirectory: 'static',
-    assetsPublicPath: '',
+    assetsPublicPath: '/',
     proxyTable: {
       '/api': {
-        changeOrigin: true,
         target: 'http://127.0.0.1:3000',
         pathRewrite: {
-          '^api/': ''
+          '^/api': ''
         }
       }
     },
@@ -57,7 +56,7 @@ module.exports = {
 
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
-    assetsSubDirectory: 'dist/static',
+    assetsSubDirectory: '/static',
     assetsPublicPath: '/',
 
     /**
