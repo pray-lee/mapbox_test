@@ -24,7 +24,7 @@ export default {
     }
   },
   created () {
-    axios.get('http://localhost:3000/tab')
+    axios.get('api/tab')
       .then(res => {
         console.log(res)
         this.list = res.data.tabJSON

@@ -9,8 +9,15 @@ module.exports = {
 
     // Paths
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
+    assetsPublicPath: '',
     proxyTable: {
+      '/api': {
+        changeOrigin: true,
+        target: 'http://127.0.0.1:3000',
+        pathRewrite: {
+          '^api/': ''
+        }
+      }
     },
 
     // Various Dev Server settings
@@ -50,7 +57,7 @@ module.exports = {
 
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
-    assetsSubDirectory: 'static',
+    assetsSubDirectory: 'dist/static',
     assetsPublicPath: '/',
 
     /**
