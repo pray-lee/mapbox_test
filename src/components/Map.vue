@@ -1,10 +1,10 @@
 <template>
   <div class="container">
     <div class="style-wrapper">
-       <div class="custom-control custom-radio" v-for="item in styleList" :key="item.id">
-        <input type="radio" id="item.type" name="customRadio" class="custom-control-input" ref="radio">
-        <label class="custom-control-label" for="item.type">{{item.type}}</label>
-       </div>
+      <div class="form-check form-check-inline" v-for="item in styleList" :key="item.id">
+        <input class="form-check-input" type="radio" @click="setStyle(item.type)" name="inlineRadioOptions" :id="item.type" value="option1">
+        <label class="form-check-label" for="item.type">{{item.type}}</label>
+      </div>
     </div>
     <!-- map -->
     <div id="map" class="map" ref="map"></div>
@@ -18,11 +18,12 @@ export default {
   name: 'mapbox',
   data () {
     return {
-      styleList: []
+      styleList: [],
+      map: null
     }
   },
   created () {
-    this.getStyle()
+    this.getStyle() // 获取样式数据
   },
   mounted () {
     this.init()
@@ -31,16 +32,14 @@ export default {
     init () {
       // init
       mapboxgl.accessToken = 'pk.eyJ1IjoicHJheS1sZWUiLCJhIjoiY2pseDMyMjhkMWFpYjN2cW4zNjZqeXQ3YSJ9.Y13hIm8Bs-Kc1veKGf5ZIw'
-      let map = new mapboxgl.Map({
+      this.map = new mapboxgl.Map({
         container: this.$refs.map,
         style: 'mapbox://styles/mapbox/streets-v10',
         center: [109.9150899566626, 36.25956997955441],
         zoom: 3
       })
       //  添加缩放控件
-      map.addControl(new mapboxgl.NavigationControl())
-      // setStyle
-      this.setStyle()
+      this.map.addControl(new mapboxgl.NavigationControl())
     },
     getStyle () {
       axios.get('/api/getStyle')
@@ -48,12 +47,8 @@ export default {
           this.styleList = res.data.styleList
         })
     },
-    setStyle () {
-      console.log(this)
-      x.onclick = this.switchLayer
-    },
-    switchLayer (e) {
-      map.setStyle(`mapbox://styles/mapbox/${e.target.id}-v9`)
+    setStyle (type) {
+      this.map.setStyle(`mapbox://styles/mapbox/${type}-v9`)
     }
   }
 }
