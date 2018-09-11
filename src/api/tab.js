@@ -7,7 +7,7 @@
 // })
 
 const tabArr = [
-  {id: 0, categories: 'init', link: '/link'},
+  {id: 0, categories: 'init', link: '/init'},
   {id: 1, categories: 'draw', link: '/draw'},
   {id: 2, categories: 'addMarker', link: '/addMarker'},
   {id: 3, categories: 'drawLine', link: '/drawLine'},
