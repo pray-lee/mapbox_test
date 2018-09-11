@@ -12,7 +12,7 @@
 
 <script>
 import axios from 'axios'
-const btnStyle = ['btn-outline-dark', 'btn-outline-primary', 'btn-outline-success', 'btn-outline-danger', 'btn-outline-warning']
+const btnStyle = ['btn-dark', 'btn-primary', 'btn-success', 'btn-danger', 'btn-warning']
 export default {
   name: 'Tab',
   data () {
@@ -26,7 +26,6 @@ export default {
   created () {
     axios.get('/api/tab')
       .then(res => {
-        console.log(res)
         this.list = res.data.tabJSON
       })
   },

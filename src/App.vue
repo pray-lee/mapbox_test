@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <tab></tab>
-    <router-view/>
+    <keep-alive>
+      <router-view></router-view>
+    </keep-alive>
   </div>
 </template>
 
@@ -19,5 +21,8 @@ export default {
 *{
   margin:0;
   padding: 0
+}
+[v-cloak] {
+  display: none;
 }
 </style>
