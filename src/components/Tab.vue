@@ -24,13 +24,15 @@ export default {
     }
   },
   created () {
-    axios.get('/api/tab')
-      .then(res => {
-        this.list = res.data.tabJSON
-      })
+    this._getTabData()
   },
   methods: {
-
+    _getTabData () {
+      axios.get('/api/tab')
+        .then(res => {
+          this.list = res.data.tabJSON
+        })
+    }
   }
 }
 </script>
