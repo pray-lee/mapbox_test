@@ -24,20 +24,18 @@ export default {
     }
   },
   created () {
-    this._getStyle() // 获取样式数据
+    this.getStyle() // 获取样式数据
   },
   mounted () {
-    this.init()
-    //  加3d地图
-    this._add3DBuilding()
+    this.init('basic')
   },
   methods: {
-    init () {
+    init (type) {
       // init
       mapboxgl.accessToken = 'pk.eyJ1IjoicHJheS1sZWUiLCJhIjoiY2pseDMyMjhkMWFpYjN2cW4zNjZqeXQ3YSJ9.Y13hIm8Bs-Kc1veKGf5ZIw'
       this.map = new mapboxgl.Map({
         container: this.$refs.map,
-        style: 'mapbox://styles/mapbox/dark-v9',
+        style: 'mapbox://styles/mapbox/' + type + '-v9',
         // center: [109.9150899566626, 36.25956997955441],
         center: [-74.0066, 40.7135],
         zoom: 15.5,
@@ -46,9 +44,11 @@ export default {
       })
       //  添加缩放控件
       this.map.addControl(new mapboxgl.NavigationControl())
+      //  加3d地图
+      this.add3DBuilding()
     },
     // add 3d building
-    _add3DBuilding () {
+    add3DBuilding () {
       this.map.on('load', () => {
         var layers = this.map.getStyle().layers
         var labelLayerId
@@ -58,7 +58,6 @@ export default {
             break
           }
         }
-        console.log(labelLayerId)
         this.add3DLayer(labelLayerId)
       })
     },
@@ -88,16 +87,15 @@ export default {
         }
       }, labelLayerId)
     },
-    _getStyle () {
+    getStyle () {
       axios.get('/api/getStyle')
         .then((res) => {
           this.styleList = res.data.styleList
         })
     },
     setStyle (type) {
-      this.map.setStyle(`mapbox://styles/mapbox/${type}-v9`)
-      //  加3d地图
-      this._add3DBuilding()
+      this.map = null
+      this.init(type)
     }
   }
 }
