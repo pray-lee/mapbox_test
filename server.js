@@ -10,16 +10,22 @@ app.use(router)
 //接口数据
 const tabJSON = require('./src/api/tab')
 const styleList = require('./src/api/styleList')
+const localStyle = require('./src/api/localStyle')
 
 //tab数据
 router.get('/tab', (req, res) => {
   res.send(tabJSON)
-  res.end() 
+  res.end()
 })
 //style数据
 router.get('/getStyle', (req, res) => {
   res.send(styleList)
-  res.end() 
+  res.end()
+})
+//localStyle数据
+router.get('/localStyle', (req, res) => {
+  res.send(localStyle)
+  res.end()
 })
 
 app.listen(port, () => {

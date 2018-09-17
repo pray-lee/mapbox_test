@@ -24,7 +24,7 @@ export default {
     }
   },
   created () {
-    this.getStyle() // 获取样式数据
+    this._getStyle() // 获取样式数据
   },
   mounted () {
     this.init('dark')
@@ -45,10 +45,10 @@ export default {
       //  添加缩放控件
       this.map.addControl(new mapboxgl.NavigationControl())
       //  加3d地图
-      this.add3DBuilding()
+      this._add3DBuilding()
     },
     // add 3d building
-    add3DBuilding () {
+    _add3DBuilding () {
       this.map.on('load', () => {
         var layers = this.map.getStyle().layers
         var labelLayerId
@@ -58,10 +58,10 @@ export default {
             break
           }
         }
-        this.add3DLayer(labelLayerId)
+        this._add3DLayer(labelLayerId)
       })
     },
-    add3DLayer (labelLayerId) {
+    _add3DLayer (labelLayerId) {
       this.map.addLayer({
         'id': '3d-buildings',
         'source': 'composite',
@@ -87,13 +87,13 @@ export default {
         }
       }, labelLayerId)
     },
-    getStyle () {
+    _getStyle () {
       axios.get('/api/getStyle')
         .then((res) => {
           this.styleList = res.data.styleList
         })
     },
-    setStyle (type) {
+    _setStyle (type) {
       this.map = null
       this.init(type)
     }

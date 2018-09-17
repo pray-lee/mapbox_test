@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Map from 'components/Map'
+import Localhost from 'components/Localhost'
 Vue.use(Router)
 export default new Router({
   routes: [
@@ -11,6 +12,10 @@ export default new Router({
     {
       path: '/init',
       component: Map
+    },
+    {
+      path: '/localhost',
+      component: Localhost
     }
   ]
 })
