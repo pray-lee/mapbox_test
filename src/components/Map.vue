@@ -27,7 +27,7 @@ export default {
     this.getStyle() // 获取样式数据
   },
   mounted () {
-    this.init('basic')
+    this.init('dark')
   },
   methods: {
     init (type) {
