@@ -2,7 +2,7 @@
   <div class="container">
     <div class="style-wrapper">
       <div class="form-check form-check-inline" v-for="item in styleList" :key="item.id">
-        <input class="form-check-input" type="radio" @click="setStyle(item.type)" name="inlineRadioOptions" :id="item.type" value="option1">
+        <input class="form-check-input" type="radio" @click="_setStyle(item.type)" name="inlineRadioOptions" :id="item.type" value="option1">
         <label class="form-check-label" :for="item.type">{{item.type}}</label>
       </div>
     </div>
