@@ -1,20 +1,25 @@
 <template>
-  <div class="container">
-    <div class="style-wrapper">
-      <div class="form-check form-check-inline" v-for="item in styleList" :key="item.id">
-        <input class="form-check-input" type="radio" @click="_setStyle(item.type)" name="inlineRadioOptions" :id="item.type" value="option1">
-        <label class="form-check-label" :for="item.type">{{item.type}}</label>
+  <Fade>
+    <div class="container">
+      <div class="style-wrapper">
+        <div class="form-check form-check-inline" v-for="item in styleList" :key="item.id">
+          <input class="form-check-input" type="radio" @click="_setStyle(item.type)" name="inlineRadioOptions"
+                 :id="item.type" value="option1">
+          <label class="form-check-label" :for="item.type">{{item.type}}</label>
+        </div>
       </div>
+      <!-- map -->
+      <button class="btn btn-warning my3d">3D</button>
+      <div id="map" class="map" ref="map"></div>
     </div>
-    <!-- map -->
-    <button class="btn btn-warning my3d">3D</button>
-    <div id="map" class="map" ref="map"></div>
-  </div>
+  </Fade>
 </template>
 
 <script>
 import mapboxgl from 'mapbox-gl'
 import axios from 'axios'
+import Fade from 'common/Fade'
+
 export default {
   name: 'mapbox',
   data () {
@@ -22,6 +27,9 @@ export default {
       styleList: [],
       map: null
     }
+  },
+  components: {
+    Fade
   },
   created () {
     this._getStyle() // 获取样式数据
@@ -102,13 +110,13 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-@import url('https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.2/mapbox-gl.css');
-.container
-  height: 600px
-  .map
-    width: 100%
-    height: 80%
-  .my3d
-    width: 200px
-    margin: 30px 0 30px 0
+  @import url('https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.2/mapbox-gl.css');
+  .container
+    height: 600px
+    .map
+      width: 100%
+      height: 80%
+    .my3d
+      width: 200px
+      margin: 30px 0 30px 0
 </style>

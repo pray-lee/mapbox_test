@@ -1,12 +1,15 @@
 <template>
-  <div class="geojson">
-    <div id="map" class="map" ref="localMap"></div>
-  </div>
+  <Fade>
+    <div class="geojson">
+      <div id="map" class="map" ref="localMap"></div>
+    </div>
+  </Fade>
 </template>
 
 <script>
 import mapboxgl from 'mapbox-gl'
 import axios from 'axios'
+import Fade from 'common/Fade'
 export default {
   name: 'Geojson',
   data () {
@@ -14,6 +17,9 @@ export default {
       map: null,
       styleObj: {}
     }
+  },
+  components: {
+    Fade
   },
   mounted () {
     this._getLocalStyle()

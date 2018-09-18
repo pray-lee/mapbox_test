@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import '../node_modules/bootstrap/dist/css/bootstrap.css'
+import '../node_modules/animate.css/animate.css'
 
 Vue.config.productionTip = false
 
