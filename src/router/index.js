@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Map from 'components/Map'
-import Localhost from 'components/Localhost'
+import Geojson from 'components/Geojson'
 Vue.use(Router)
 export default new Router({
   routes: [
@@ -14,8 +14,8 @@ export default new Router({
       component: Map
     },
     {
-      path: '/localhost',
-      component: Localhost
+      path: '/geojson',
+      component: Geojson
     }
   ]
 })

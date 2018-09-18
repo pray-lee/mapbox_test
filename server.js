@@ -10,7 +10,7 @@ app.use(router)
 //接口数据
 const tabJSON = require('./src/api/tab')
 const styleList = require('./src/api/styleList')
-const localStyle = require('./src/api/localStyle')
+const localStyle = require('./src/api/geoJson')
 
 //tab数据
 router.get('/tab', (req, res) => {
@@ -23,7 +23,7 @@ router.get('/getStyle', (req, res) => {
   res.end()
 })
 //localStyle数据
-router.get('/localStyle', (req, res) => {
+router.get('/getJson', (req, res) => {
   res.send(localStyle)
   res.end()
 })

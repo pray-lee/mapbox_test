@@ -1,18 +1,8 @@
+const geoJson = require('./chongqing.json')
 const sources = {
-  "geojson-marker": {
+  "geojson-lines": {
     "type": "geojson",
-    "data": {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [-77.0323, 38.9131]
-      },
-      "properties": {
-        "title": "Mapbox DC",
-        "marker-symbol": "monument"
-      }
-    }
+    "data": geoJson
   }
-
 }
 exports.sources = sources
