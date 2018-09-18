@@ -20,6 +20,7 @@ export default {
   },
   methods: {
     init () {
+      console.log(this.styleObj)
       mapboxgl.accessToken = 'pk.eyJ1IjoicHJheS1sZWUiLCJhIjoiY2pseDMyMjhkMWFpYjN2cW4zNjZqeXQ3YSJ9.Y13hIm8Bs-Kc1veKGf5ZIw'
       this.map = new mapboxgl.Map({
         container: this.$refs.localMap,
@@ -32,9 +33,8 @@ export default {
       this.map.addControl(new mapboxgl.NavigationControl())
       //  添加sources和layer
       this.map.on('load', () => {
-        console.log(this, 'this')
-        // this._addSource()
-        // this._addLayer()
+        this._addSource()
+        this._addLayer()
       })
     },
     // 添加数据源
