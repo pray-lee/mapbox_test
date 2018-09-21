@@ -2,7 +2,8 @@ const layers = [
   {
     "id": "water",
     "type": "fill",
-    "source": "geojson-lines",
+    "source": "xixi",
+    "source-layer": "water",
     "minzoom": 0,
     "maxzoom":22,
     "paint": {

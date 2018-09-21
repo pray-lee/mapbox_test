@@ -7,7 +7,9 @@
 <script>
 export default {
   name: 'Fade',
-  data () {},
+  data () {
+    return {}
+  },
   methods: {}
 }
 </script>
